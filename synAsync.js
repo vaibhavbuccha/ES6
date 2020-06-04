@@ -29,7 +29,7 @@ setTimeout(() => {
 },0);
 //  according to sync programming the value of b2 must be increased by 1 but still the value of b2 is 25 
 
-log(a2(b2));
+log("value of b2 can be 26",a2(b2));
 
 setTimeout(() => {
 	// b2++;
@@ -42,3 +42,22 @@ setTimeout(() => {
 
 //  -- why we need asynchronous programming?
 //  when we have a function that might take a lot of time in execution like getting geological location etc than that is the best pratices to put that function asnyc because js always execute sync than asynch code.
+
+
+// example of synchcronous and asynchronous with promises.
+
+// create a promise p
+let p = new Promise((resolved, rejected)=>{
+	setTimeout(() => {
+		return(resolved("yo issue resolved"));
+	},0);
+});
+
+log(p);
+log("My result which can be after promis",a2(b2));
+
+let myInt = setInterval(() => {
+	log(p);
+	p.then(response => {if(response) clearInterval(myInt)});
+}, 100);
+
