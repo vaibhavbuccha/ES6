@@ -5,7 +5,7 @@ const users = [
 ];
 
 console.table(users);
-console.warn(users);
+console.warn(`Danger ! Danger!`);
 console.info(users);
-console.error(users);
+console.error(new Error("oops somthing wents wrong"));
 console.log(users);
